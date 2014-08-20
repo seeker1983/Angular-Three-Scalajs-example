@@ -1,14 +1,16 @@
 // Turn this project into a Scala.js project by importing these settings
 scalaJSSettings
 
-name := "scala-js-angular-example"
+name := "Angular Three Scalajs example"
 
-version := "0.1-SNAPSHOT"
+version := "0.1"
 
-scalaVersion := "2.11.0"
+scalaVersion := "2.11.2"
 
 libraryDependencies ++= Seq(
-  "org.scala-lang.modules.scalajs" %% "scalajs-jasmine-test-framework" % scalaJSVersion % "test",
-  "org.scala-lang.modules.scalajs" %% "scalajs-dom" % "0.4",
-  "org.scala-lang.modules.scalajs" %% "scalajs-jquery" % "0.4"
+  "org.scala-lang.modules.scalajs" %% "scalajs-jasmine-test-framework" % scalaJSVersion % "test"
 )
+
+libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.6"
+
+libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6"

@@ -1,24 +1,65 @@
 <!DOCTYPE html>
-<html ng-app="TestApp">
+<html ng-app="AngularThree">
 <head>
     <script src="./target/scala-2.11/classes/angular.min.js"></script>
-    <script type="text/javascript" src="./target/scala-2.11/scala-js-angular-example-opt.js"></script>
+    <script src="./target/scala-2.11/classes/three.min.js"></script>
+    <script src="./target/scala-2.11/classes/hand.js"></script>
+    <style type="text/css">
+        .baseInput {
+            width:30px;
+        }
+        .renderButton {
+            width:120px;
+            font: 24px Arial bold;
+            text-align:center;
+            margin-left: 60px;
+            margin-top: 60px;
+        }
+    </style>
+    <script type="text/javascript" src="./target/scala-2.11/angular-three-scalajs-example-fastopt.js"></script>
     <title>AngularJS example by using Scala.js</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 
-<div ng-controller="SimpleController">
-    <strong>First name:</strong> {{firstName}}<br/>
-    <strong>Last name:</strong> <span ng-bind="lastName"></span><br/>
-    <strong>Full name:</strong> {{getFullName()}}<br/>
-    <br/>
-    <label>Set the first name: <input type="text" ng-model="firstName"/></label><br/>
-    <label>Set the last name: <input type="text" ng-model="lastName"/></label>
-</div>
+<table width="100%">
+    <tr>
+        <td width="320" height="320">
+            <canvas id="polygon"></canvas>
+            <script>
+            document.getElementById("polygon").onmousedown = function(event){
+                event.preventDefault();};
+            </script>
+        </td>
+    <td>
+        <div ng-controller="SimpleController">
+            <strong>Vertices:</strong> {{vertices}}
+            <button ng-click="SetVertices(vertices + 1)" ng-init="SetVertices(6)">
+              +
+            </button>
+            <button ng-click="SetVertices(vertices - 1)">
+                -
+            </button>
+            <br/><br/>
+            <strong>X-Rotation:</strong>
+            <input type="text" class="baseInput" ng-model="rotationX"/ ng-init="rotationX=0.0">
+            <strong>Speed:</strong>
+            <input type="text" class="baseInput" ng-model="rotationSpeedX"/ ng-init="rotationSpeedX=0.1">
+            <strong>Auto:</strong>
+            <input type="checkbox" ng-model="rotateX" ng-init="rotateX=true">
+            <br/>
+
+            <button ng-click="Render()" class="renderButton">
+                Render
+            </button>
+
+        </div>
+        </td>
+    </tr>
+</table>
 
 <script type="text/javascript">
-    Main();
+    example.Main().main();
 </script>
 
 </body>

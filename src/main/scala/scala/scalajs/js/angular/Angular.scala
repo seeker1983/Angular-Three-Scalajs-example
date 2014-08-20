@@ -66,7 +66,7 @@ trait Angular extends js.Object {
 
   def noop(): Unit
 
-  def toJson(obj: js.Any, pretty: js.Boolean = null): js.String
+  def toJson(obj: js.Any, pretty: js.Boolean = false): js.String
 
   def uppercase(string: js.String): js.String
 
