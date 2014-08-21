@@ -4,6 +4,7 @@
     <script src="./target/scala-2.11/classes/angular.min.js"></script>
     <script src="./target/scala-2.11/classes/three.min.js"></script>
     <script src="./target/scala-2.11/classes/hand.js"></script>
+    <script src="./target/scala-2.11/classes/threeExample.js"></script>
     <style type="text/css">
         .baseInput {
             width:30px;
@@ -20,9 +21,9 @@
     <title>AngularJS example by using Scala.js</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
+<body onload="ThreeExample()">
 
-<table width="100%">
+<table width="100%" height="100%">
     <tr>
         <td width="320" height="320">
             <canvas id="polygon"></canvas>
@@ -31,31 +32,55 @@
                 event.preventDefault();};
             </script>
         </td>
-    <td>
-        <div ng-controller="SimpleController">
-            <strong>Vertices:</strong> {{vertices}}
-            <button ng-click="SetVertices(vertices + 1)" ng-init="SetVertices(6)">
-              +
-            </button>
-            <button ng-click="SetVertices(vertices - 1)">
-                -
-            </button>
-            <br/><br/>
-            <strong>X-Rotation:</strong>
-            <input type="text" class="baseInput" ng-model="rotationX"/ ng-init="rotationX=0.0">
-            <strong>Speed:</strong>
-            <input type="text" class="baseInput" ng-model="rotationSpeedX"/ ng-init="rotationSpeedX=0.1">
-            <strong>Auto:</strong>
-            <input type="checkbox" ng-model="rotateX" ng-init="rotateX=true">
-            <br/>
-
-            <button ng-click="Render()" class="renderButton">
-                Render
-            </button>
-
-        </div>
+        <td rowspan=2 id="ThreeHolder">
+            <canvas id="ThreeCanvas"></canvas>
         </td>
     </tr>
+   <tr>
+       <td>
+           <div ng-controller="SimpleController">
+               <strong>Vertices:</strong> {{vertices}}
+               <button ng-click="SetVertices(vertices + 1)">
+                   +
+               </button>
+               <button ng-click="SetVertices(vertices - 1)">
+                   -
+               </button>
+               <br/><br/>
+               <strong>X-Rotation:</strong>
+               <input type="text" class="baseInput" ng-model="rotationX"/ ng-init="rotationX=0.0">
+               <strong>Speed:</strong>
+               <input type="text" class="baseInput" ng-model="rotationSpeedX"/ ng-init="rotationSpeedX=0.1">
+               <strong>Auto:</strong>
+               <input type="checkbox" ng-model="rotateX" ng-init="rotateX=true">
+               <br/>
+
+               <strong>Y-Rotation:</strong>
+               <input type="text" class="baseInput" ng-model="rotationY"/ ng-init="rotationY=0.0">
+               <strong>Speed:</strong>
+               <input type="text" class="baseInput" ng-model="rotationSpeedY"/ ng-init="rotationSpeedY=0.1">
+               <strong>Auto:</strong>
+               <input type="checkbox" ng-model="rotateY" ng-init="rotateY=true">
+               <br/>
+
+               <strong>Z-Rotation:</strong>
+               <input type="text" class="baseInput" ng-model="rotationZ"/ ng-init="rotationZ=0.0">
+               <strong>Speed:</strong>
+               <input type="text" class="baseInput" ng-model="rotationSpeedZ"/ ng-init="rotationSpeedZ=0.1">
+               <strong>Auto:</strong>
+               <input type="checkbox" ng-model="rotateZ" ng-init="rotateZ=true">
+               <br/>
+
+               <button ng-click="Render()" class="renderButton">
+                   Render
+               </button>
+               <!--<button ng-click="Hide()" class="renderButton">-->
+                   <!--Hide-->
+               <!--</button>-->
+
+           </div>
+       </td>
+   </tr>
 </table>
 
 <script type="text/javascript">
