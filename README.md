@@ -8,3 +8,8 @@ Execute `fastOptJS` command.
 sbt clean fastOptJS
 ```
 
+## Usage
+
+Arrow keys, QE - rotate
+
+Drag vertices on source canvas to change source polygon.

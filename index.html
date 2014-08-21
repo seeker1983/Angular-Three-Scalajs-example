@@ -56,7 +56,11 @@
                <input type="checkbox" ng-model="rotate.Y" ng-init="rotate.Y=true" ng-change="setRotation()">
                <br/>
                <strong>Rotate Z:</strong>
-               <input type="checkbox" ng-model="rotate.Z" ng-init="rotate.Z=false" ng-change="setRotation()">
+               <input type="checkbox" ng-model="rotate.Z" ng-init="rotate.Z=false;setRotation()" ng-change="setRotation()">
+               <br/>
+
+               <strong>Wireframe:</strong>
+               <input type="checkbox" ng-model="wireFrame" ng-init="wireFrame=false" ng-change="Render()">
                <br/>
 
                <button ng-click="Render()" class="renderButton">
