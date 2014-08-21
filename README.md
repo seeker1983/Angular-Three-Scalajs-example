@@ -2,16 +2,9 @@
 
 ## How to build for development.
 
-Executes `packageJS` command, then Opens index-dev.html by using WebBrowser.
+Execute `fastOptJS` command.
 
 ```sh
-sbt clean packageJS
+sbt clean fastOptJS
 ```
 
-## How to build for optimized version
-
-Executes `optimizeJS` command, then Opens index.html by using WebBrowser.
-
-```sh
-sbt clean optimizeJS
-```

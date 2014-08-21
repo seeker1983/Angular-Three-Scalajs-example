@@ -21,7 +21,7 @@
     <title>AngularJS example by using Scala.js</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body onload="ThreeExample()">
+<body onload="//ThreeExample()">
 
 <table width="100%" height="100%">
     <tr>
@@ -46,29 +46,17 @@
                <button ng-click="SetVertices(vertices - 1)">
                    -
                </button>
+               <strong>Height:</strong>
+               <input type="text" class="baseInput" ng-model="height" ng-change="saveHeight()" ng-init="loadHeight()">
                <br/><br/>
-               <strong>X-Rotation:</strong>
-               <input type="text" class="baseInput" ng-model="rotationX"/ ng-init="rotationX=0.0">
-               <strong>Speed:</strong>
-               <input type="text" class="baseInput" ng-model="rotationSpeedX"/ ng-init="rotationSpeedX=0.1">
-               <strong>Auto:</strong>
-               <input type="checkbox" ng-model="rotateX" ng-init="rotateX=true">
+               <strong>Rotate X:</strong>
+               <input type="checkbox" ng-model="rotate.X" ng-init="rotate.X=true" ng-change="setRotation()">
                <br/>
-
-               <strong>Y-Rotation:</strong>
-               <input type="text" class="baseInput" ng-model="rotationY"/ ng-init="rotationY=0.0">
-               <strong>Speed:</strong>
-               <input type="text" class="baseInput" ng-model="rotationSpeedY"/ ng-init="rotationSpeedY=0.1">
-               <strong>Auto:</strong>
-               <input type="checkbox" ng-model="rotateY" ng-init="rotateY=true">
+               <strong>Rotate Y:</strong>
+               <input type="checkbox" ng-model="rotate.Y" ng-init="rotate.Y=true" ng-change="setRotation()">
                <br/>
-
-               <strong>Z-Rotation:</strong>
-               <input type="text" class="baseInput" ng-model="rotationZ"/ ng-init="rotationZ=0.0">
-               <strong>Speed:</strong>
-               <input type="text" class="baseInput" ng-model="rotationSpeedZ"/ ng-init="rotationSpeedZ=0.1">
-               <strong>Auto:</strong>
-               <input type="checkbox" ng-model="rotateZ" ng-init="rotateZ=true">
+               <strong>Rotate Z:</strong>
+               <input type="checkbox" ng-model="rotate.Z" ng-init="rotate.Z=false" ng-change="setRotation()">
                <br/>
 
                <button ng-click="Render()" class="renderButton">
