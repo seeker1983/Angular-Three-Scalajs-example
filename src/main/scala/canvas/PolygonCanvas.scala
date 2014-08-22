@@ -10,24 +10,17 @@ import org.scalajs.dom
 import scala.collection
 import storage.localStorage
 
-object PolygonCanvas extends BaseCanvas with CanvasEventListener{
-  val w:Int = 300
-  val h:Int = 300
+object PolygonCanvas extends BaseCanvas(300, 300, "polygon") with CanvasEventListener{
+
   var dragOn:Boolean = false
   var dragVertex:Int = -1
   var polygon:Polygon = Polygon.empty
-  val canvas = dom.document.getElementById("polygon").cast[dom.HTMLCanvasElement]
   val ctx = canvas.getContext("2d").cast[dom.CanvasRenderingContext2D]
-
-  def view = canvas.getBoundingClientRect()
-  def canvasX(x: Float):Float = x - view.left.toFloat
-  def canvasY(y: Float):Float = y - view.top.toFloat
 
   var delta:CanvasCoord = CanvasCoord(0,0)
 
-  def init:Unit = {
-    canvas.width = w
-    canvas.height = h
+  override def init:Unit = {
+    super.init
 
     Seq("pointerdown", "pointermove", "pointerup").foreach{
       s => canvas.addEventListener(s, (e: dom.Event) => event(e))
@@ -35,6 +28,7 @@ object PolygonCanvas extends BaseCanvas with CanvasEventListener{
 
     dom.setInterval(() => update(), 25)
   }
+
   def reset(vertices:Int) : Unit = {
     polygon = Polygon(vertices)
 

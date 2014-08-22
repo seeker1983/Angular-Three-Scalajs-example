@@ -21,16 +21,13 @@
     <title>AngularJS example by using Scala.js</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body onload="//ThreeExample()">
+<body>
 
 <table width="100%" height="100%">
     <tr>
         <td width="320" height="320">
             <canvas id="polygon"></canvas>
-            <script>
-            document.getElementById("polygon").onmousedown = function(event){
-                event.preventDefault();};
-            </script>
+            <script>document.getElementById("polygon").onmousedown = function(event){event.preventDefault()}</script>
         </td>
         <td rowspan=2 id="ThreeHolder">
             <canvas id="ThreeCanvas"></canvas>
@@ -39,16 +36,20 @@
    <tr>
        <td>
            <div ng-controller="SimpleController">
+
                <strong>Vertices:</strong> {{vertices}}
+
                <button ng-click="SetVertices(vertices + 1)">
                    +
                </button>
                <button ng-click="SetVertices(vertices - 1)">
                    -
                </button>
+
                <strong>Height:</strong>
                <input type="text" class="baseInput" ng-model="height" ng-change="saveHeight()" ng-init="loadHeight()">
                <br/><br/>
+
                <strong>Rotate X:</strong>
                <input type="checkbox" ng-model="rotate.X" ng-init="rotate.X=true" ng-change="setRotation()">
                <br/>
@@ -66,9 +67,6 @@
                <button ng-click="Render()" class="renderButton">
                    Render
                </button>
-               <!--<button ng-click="Hide()" class="renderButton">-->
-                   <!--Hide-->
-               <!--</button>-->
 
            </div>
        </td>

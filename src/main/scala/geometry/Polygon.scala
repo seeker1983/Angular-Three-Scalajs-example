@@ -47,8 +47,6 @@ class Polygon(_vertices:Int)
         {
           polygon(i) = new CanvasCoord(a(1+2*i).toFloat,a(1+2*i + 1).toFloat)
         }
-//      val jsonPckl = new JSONPickle(s)
-  //    polygon = jsonPckl.unpickle[Array[CanvasCoord]]
     }
 
   def serialize(): String = {
@@ -64,7 +62,6 @@ class Polygon(_vertices:Int)
       a(2*i) = getVertex(i).x
       a(2*i+1) = getVertex(i).y
     }
-
     a
   }
 

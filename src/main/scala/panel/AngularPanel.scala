@@ -11,11 +11,6 @@ import three.ThreeCanvas
 import canvas.PolygonCanvas
 
 object AngularPanel {
-    def saveVertices(value:Int):Unit = { localStorage.saveNumber("vertices", value) }
-    def loadVertices():Int = {
-      localStorage.loadInt("vertices", 6)
-    }
-
     def init() : Unit = {
         val module = angular.module("AngularThree", Array.empty[String])
 
@@ -32,7 +27,7 @@ object AngularPanel {
               scope.SetVertices = { (value:Int) =>
                 if(value >=3)
                   {
-                  saveVertices(value)
+                  localStorage.saveNumber("vertices", value)
                   scope.vertices = value
                   PolygonCanvas.reset(value)
                   }
@@ -41,17 +36,16 @@ object AngularPanel {
               if(PolygonCanvas.loadPolygon())
                 scope.vertices = PolygonCanvas.polygon.vertices
               else
-                scope.SetVertices(loadVertices())
+                scope.SetVertices(4)
 
-              scope.Hide = { () =>
-                dom.document.getElementById("ThreeHolder").removeChild(dom.document.getElementById("ThreeCanvas"));
-              }: js.Function
               scope.setRotation = { () =>
                 global.rotate=scope.rotate;
               }: js.Function
+
               scope.Render = { () =>
                 ThreeCanvas.render(("" + scope.height).toFloat, scope.wireFrame)
               }: js.Function
+
             }: js.Function
           )
         )
