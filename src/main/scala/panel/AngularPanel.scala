@@ -6,7 +6,7 @@ import scala.scalajs.js.angular._
 import js.Dynamic.global
 import org.scalajs.dom
 import storage.localStorage
-import three.ThreeCanvas
+import three.{Rotate, ThreeCanvas}
 
 import canvas.PolygonCanvas
 
@@ -39,7 +39,7 @@ object AngularPanel {
                 scope.SetVertices(4)
 
               scope.setRotation = { () =>
-                global.rotate=scope.rotate;
+                //ThreeCanvas.rotate=scope.rotate
               }: js.Function
 
               scope.Render = { () =>

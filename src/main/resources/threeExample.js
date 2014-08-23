@@ -157,12 +157,3 @@ function ThreeExample()
 
     scene = new renderPlain(horizontalVertices, 2, 700, 700, "ThreeCanvas")
 }
-
-BigTest = new function() {
-    this.test = function (value){
-        console.log(value+100)
-    }
-}
-function test (value) {
-    console.log(value + 100)
-}
